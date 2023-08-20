@@ -92,7 +92,12 @@ Don't just calculate the overall average rating before and after 1980.)
 
 
 
---A9
+--A9 -> Unfinished
+
+select title, year, avg(stars) as Title_Avg
+from Rating,Movie 
+where Rating.mID = Movie.mID 
+group by title
 
 
 
