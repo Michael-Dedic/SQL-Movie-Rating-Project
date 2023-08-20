@@ -1,0 +1,30 @@
+--Q1 Find the titles of all movies directed by Steven Spielberg.
+
+--A1
+
+select title
+from Movie
+where director = 'Steven Spielberg';
+
+--Q2 Find all years that have a movie that received a rating of 4 or 5, and sort them in increasing order.
+
+--A2
+
+select distinct year
+from Movie,Rating 
+where Rating.mID = Movie.mID and stars >= 4 ORDER BY year ASC; 
+
+
+
+--Q3 Find the titles of all movies that have no ratings.
+
+--A3
+
+select title
+from Movie
+where mID not in (select mID from Rating);
+
+
+
+
+
