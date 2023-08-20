@@ -65,6 +65,26 @@ where R.rID = Reviewer.rID and R.mID = Movie.mID;
 
 --A7
 
+select title, stars
+from Rating,Movie
+where Rating.mID = Movie.mID
+group by title
+having max(stars);
+
+
+--Q8 For each movie, return the title and the 'rating spread', that is, the difference between highest and lowest ratings given to that movie. 
+--Sort by rating spread from highest to lowest, then by movie title.
+
+
+--A8
+
+
+
+
+
+
+
+
 
 
 
