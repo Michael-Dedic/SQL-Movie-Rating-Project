@@ -31,9 +31,27 @@ where mID not in (select mID from Rating);
 
 --A4
 
-elect Reviewer.name
+select Reviewer.name
 from Rating, Reviewer
 where Rating.rID = Reviewer.rID and ratingDate is Null;
+
+
+Q5-- Write a query to return the ratings data in a more readable format: reviewer name, movie title, stars, and ratingDate. 
+--Also, sort the data, first by reviewer name, then by movie title, and lastly by number of stars.
+
+
+--A5
+
+select Reviewer.name, title, stars, ratingDate
+from Movie,Rating, Reviewer
+where Rating.rID = Reviewer.rID and Movie.mID = Rating.mID 
+order by name,title,stars;
+
+
+Q6--For all cases where the same reviewer rated the same movie twice and gave it a higher rating the second time, return the reviewer's name and the title of the movie.
+
+
+--A6
 
 
 
