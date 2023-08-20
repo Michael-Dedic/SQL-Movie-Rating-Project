@@ -78,6 +78,12 @@ having max(stars);
 
 --A8
 
+select title,(max(stars) - min(stars)) as spread
+from Rating,Movie 
+where Rating.mID = Movie.mID 
+group by title
+order by spread DESC, title
+
 
 
 
