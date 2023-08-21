@@ -92,12 +92,34 @@ Don't just calculate the overall average rating before and after 1980.)
 
 
 
---A9 -> Unfinished
+--A9 
 
+select max(Average) - min (Average) as Difference
+from(
+select avg(Title_Avg) as Average
+from(
 select title, year, avg(stars) as Title_Avg
 from Rating,Movie 
 where Rating.mID = Movie.mID 
-group by title
+group by title) 
+
+where year <1980
+
+union
+
+
+
+select avg(Title_Avg) as Average
+from(
+select title, year, avg(stars) as Title_Avg
+from Rating,Movie 
+where Rating.mID = Movie.mID 
+group by title) 
+
+where year >1980) 
+
+
+
 
 
 
