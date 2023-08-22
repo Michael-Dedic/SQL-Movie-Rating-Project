@@ -135,6 +135,15 @@ where year >1980)
 
 --A2
 
+update movie
+set year = year+25
+where mID in 
+(select mID from movie Join rating using(mID)
+group by mID
+having avg(stars)>=4)
+
+
+
 
 
 
