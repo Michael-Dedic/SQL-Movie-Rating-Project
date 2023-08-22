@@ -144,6 +144,22 @@ having avg(stars)>=4)
 
 
 
+--A2 alternate way. Instead of using JOIN I modified some of the code from Q9 to do the same as as above without the join operator
+
+update movie
+set year = year+25
+where movie.mID in
+(select movie.mID
+from Rating,Movie 
+where Rating.mID = Movie.mID 
+group by title
+having avg(stars)>=4)
+
+
+--Q3
+
+
+--A3
 
 
 
